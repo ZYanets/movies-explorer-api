@@ -1,6 +1,9 @@
 # Дипломная работа Яндекс.Практикум: Movies Explorer
 Бэкенд для приложения Movies Explorer
 
+## Ссылка на сайт
+https://api.moviesexplorer.zya.nomoredomains.work/  
+
 ## Директории
 `/routes` — папка с файлами роутера  
 `/controllers` — папка с файлами контроллеров пользователя и фильма  
