@@ -7,10 +7,10 @@ module.exports.getSavedMovies = (req, res, next) => {
   Movie.find({})
     .then((savedMovies) => {
       if (savedMovies.length === 0) {
-        res.status(404).send({ message: 'Сохранённые Фильмы отсутствуют' });
+        res.send({ message: 'Сохранённые Фильмы отсутствуют' });
         return;
       }
-      res.status(200).send(savedMovies);
+      res.send(savedMovies);
     })
     .catch(next);
 };
@@ -62,7 +62,7 @@ module.exports.deleteMovie = (req, res, next) => {
       } else {
         Movie.deleteOne({ _id: req.params.movieId })
           .then((data) => {
-            res.status(200).send(data);
+            res.send(data);
           })
           .catch(next);
       }
@@ -73,33 +73,3 @@ module.exports.deleteMovie = (req, res, next) => {
       } else next(err);
     });
 };
-
-/* module.exports.likeMovie = (req, res, next) => {
-  Movie.findByIdAndUpdate(
-    req.params.movieId,
-    { $addToSet: { likes: req.user._id } },
-    { new: true },
-  )
-    .orFail(new NotFoundError('Фильм не найден'))
-    .then((movie) => res.status(200).send(movie))
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        next(new BadRequestError('Переданы некорректные данные при постановке лайка'));
-      } else next(err);
-    });
-};
-
-module.exports.dislikeMovie = (req, res, next) => {
-  Movie.findByIdAndUpdate(
-    req.params.movieId,
-    { $pull: { likes: req.user._id } },
-    { new: true },
-  )
-    .orFail(new NotFoundError('Фильм не найден'))
-    .then((movie) => res.status(200).send(movie))
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        next(new BadRequestError('Переданы некорректные данные при снятии лайка'));
-      } else next(err);
-    });
-}; */

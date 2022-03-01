@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { urlPattern } = require('../config');
+const validator = require('validator');
 
 const movieSchema = new mongoose.Schema({
   country: {
@@ -26,7 +26,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: {
-      validator: (link) => urlPattern.test(link),
+      validator: (link) => validator.isURL(link),
       message: 'Неправильный формат ссылки на постер к фильму',
     },
   },
@@ -34,7 +34,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: {
-      validator: (link) => urlPattern.test(link),
+      validator: (link) => validator.isURL(link),
       message: 'Неправильный формат ссылки на трейлер фильма',
     },
   },
@@ -42,7 +42,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: {
-      validator: (link) => urlPattern.test(link),
+      validator: (link) => validator.isURL(link),
       message: 'Неправильный формат ссылки на миниатюрное изображение постера к фильму',
     },
   },
@@ -52,7 +52,7 @@ const movieSchema = new mongoose.Schema({
     required: true,
   },
   movieId: {
-    type: String,
+    type: Number,
     required: true,
   },
   nameRU: {

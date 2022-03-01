@@ -27,6 +27,8 @@ module.exports.updateProfile = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new BadRequestError('Переданы некорректные данные при создании пользователя'));
+      } else if (err.code === 11000) {
+        next(new ConflictError('Пользователь с таким почтовым ящиком уже существует'));
       } else next(err);
     });
 };
@@ -67,8 +69,6 @@ module.exports.login = (req, res, next) => {
       })
         .send({ message: 'Вы успешно авторизованы!' });
     })
-    /* res.send({ token });
-    }) */
     .catch(next);
 };
 
