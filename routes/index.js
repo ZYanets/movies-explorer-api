@@ -4,7 +4,7 @@ const {
   validateLogin,
   validateCreateUser,
 } = require('../middlewares/validation');
-const { login, createUser, signout } = require('../controllers/users');
+const { login, createUser } = require('../controllers/users');
 const NotFoundError = require('../errors/not-found-error');
 
 router.post('/signin', validateLogin, login);
@@ -14,8 +14,6 @@ router.use(auth);
 
 router.use('/users', require('./users'));
 router.use('/movies', require('./movies'));
-
-router.post('/signout', signout);
 
 router.use('*', () => {
   throw new NotFoundError('Страница не найдена');
