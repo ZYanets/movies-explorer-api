@@ -62,17 +62,7 @@ module.exports.login = (req, res, next) => {
         NODE_ENV === 'production' ? JWT_SECRET : 'super-strong-secret',
         { expiresIn: '7d' },
       );
-      res.cookie('jwt', token, {
-        maxAge: 3600000 * 24 * 7,
-        httpOnly: true,
-        sameSite: true,
-      })
-        .send({ message: 'Вы успешно авторизованы!' });
+      res.send({ token });
     })
     .catch(next);
-};
-
-module.exports.signout = (req, res) => {
-  res.clearCookie('jwt')
-    .send({ message: 'Cookie удалены!' });
 };
