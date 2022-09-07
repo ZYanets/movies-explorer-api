@@ -1,8 +1,17 @@
-# Дипломная работа Яндекс.Практикум: Movies Explorer
-Бэкенд для приложения Movies Explorer
+# Movies Explorer
+Бэкенд для многостраничного приложения по поиску фильмов. Создан REST API сервер на Express.js с использованием базы данных MongoDB.  
+**Фронтенд проекта:** https://github.com/ZYanets/movies-explorer-frontend  
+**Ссылка на сайт:** https://moviesexplorer.zya.nomoredomains.work/
 
-## Ссылка на сайт
-https://api.moviesexplorer.zya.nomoredomains.work/  
+Реализовано:
+- регистрация и авторизация пользователей
+- редактирование данных профиля пользователя
+- добавление/удаление сохраненных фильмов
+- валидация данных
+- централизованная обработка ошибок
+
+## Использованные технологии
+`Express.js`, `Node.js`, `MongoDB` 
 
 ## Директории
 `/routes` — папка с файлами роутера  
@@ -22,9 +31,9 @@ https://api.moviesexplorer.zya.nomoredomains.work/
 `DELETE /movie/_id` — удаляет сохранённый фильм по id  
 
 ## Запуск проекта
-`npm run start` — запускает сервер  
-`npm run dev` — запускает сервер с hot-reload  
+- `git clone git@github.com:ZYanets/movies-explorer-api.git` - клонировать проект с удаленного репозитория
+- `npm run start` — запустить сервер  
+- `npm run dev` — запустить сервер с hot-reload    
 
-## Использованные технологии
-* Express.js
-* MongoDB
+## Статус
+Проект завершен
