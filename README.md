@@ -1,7 +1,6 @@
 # Movies Explorer
 Бэкенд для многостраничного приложения по поиску фильмов. Создан REST API сервер на Express.js с использованием базы данных MongoDB.  
 **Фронтенд проекта:** https://github.com/ZYanets/movies-explorer-frontend  
-**Ссылка на сайт:** https://moviesexplorer.zya.nomoredomains.work/
 
 Реализовано:
 - регистрация, авторизация и аутентификация пользователей
